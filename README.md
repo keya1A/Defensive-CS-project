@@ -7,21 +7,21 @@ SecureScope is a web-based platform for **non-invasive web security assessment a
 ## Screenshots
 
 ### Landing page
-![SecureScope landing page](<img width="954" height="440" alt="Screenshot 2026-11-20 224737" src="https://github.com/user-attachments/assets/0f6fe64b-da69-4317-800d-6e7c4c905f94" />
-)
+![SecureScope landing page]<img width="954" height="440" alt="Screenshot 2026-11-20 224737" src="https://github.com/user-attachments/assets/e3875679-81c8-48d1-9cee-07a4a6725623" />
+
+
 
 ### Scan overview — low-risk example
-![Scan overview showing a risk score of 18 out of 100](<img width="949" height="443" alt="Screenshot 2026-11-20 225028" src="https://github.com/user-attachments/assets/b3a10fcd-db71-4c4e-9908-e93c4fa7f096" />
+![Scan overview showing a risk score of 18 out of 100] <img width="949" height="443" alt="Screenshot 2026-11-20 225028" src="https://github.com/user-attachments/assets/b3a10fcd-db71-4c4e-9908-e93c4fa7f096" />
 
-)
+
 
 ### Security headers and cookie analysis
-![Security headers and cookie security results](<img width="794" height="439" alt="Screenshot 2026-11-20 225130" src="https://github.com/user-attachments/assets/856cf49a-0e4a-42f5-98bc-254e348b1238" />
-)
+![Security headers and cookie security results]
+<img width="794" height="439" alt="Screenshot 2026-11-20 225130" src="https://github.com/user-attachments/assets/856cf49a-0e4a-42f5-98bc-254e348b1238" />
 
 ### Scan overview — high-risk example
-![Scan overview showing a risk score of 65 out of 100](<img width="955" height="347" alt="Screenshot 2026-11-20 225344" src="https://github.com/user-attachments/assets/9a93a1af-18a6-48d1-ba5e-894944f19a4a" />
-)
+![Scan overview showing a risk score of 65 out of 100]<img width="955" height="347" alt="Screenshot 2026-11-20 225344" src="https://github.com/user-attachments/assets/9a93a1af-18a6-48d1-ba5e-894944f19a4a" />
 
 *The screenshots show example scan results from different assessments. Scores and findings depend on the target domain and the results returned during each scan.*
 
@@ -73,122 +73,6 @@ The project uses the following technologies and services:
 | Vulnerability information | NVD CVE API |
 | Known exploited vulnerabilities | CISA KEV catalog |
 | Domain registration information | WHOIS / RDAP |
-
-## Architecture
-
-```mermaid
-flowchart TD
-    A[User enters authorized domain] --> B[React + TypeScript frontend]
-    B --> C[Domain validation and scope checks]
-    C --> D[Supabase Edge Function: scan-domain]
-    D --> E[Assessment pipeline]
-    E --> F[DNS analysis]
-    E --> G[HTTP and security headers]
-    E --> H[SSL/TLS analysis]
-    E --> I[WHOIS / RDAP lookup]
-    E --> J[Technology detection]
-    J --> K[NVD CVE matching]
-    D --> L[Risk calculation]
-    L --> M[Scan result]
-    M --> N[(Supabase PostgreSQL)]
-    M --> O[Dashboard and report]
-    P[Threat intelligence function] --> Q[NVD and CISA KEV data]
-    Q --> O
-```
-
-## Project Structure
-
-The project contains a React frontend and Supabase backend functions. The deployed `scan-domain` function is organized into assessment modules such as validation, pipeline, DNS, HTTP, TLS, WHOIS, technology detection, CVE matching, findings and risk calculation.
-
-A simplified view:
-
-```text
-SecureScope/
-├── frontend source files
-│   ├── React pages and components
-│   ├── Supabase client configuration
-│   └── styles and UI assets
-└── supabase/
-    └── functions/
-        ├── scan-domain/
-        │   ├── index.ts
-        │   ├── validate.ts
-        │   ├── pipeline.ts
-        │   ├── models.ts
-        │   ├── risk.ts
-        │   ├── findings.ts
-        │   ├── cve.ts
-        │   ├── technology.ts
-        │   ├── whois.ts
-        │   ├── tls.ts
-        │   ├── http.ts
-        │   └── dns.ts
-        └── threat-intel/
-```
-
-*Update this tree if your repository uses different folder names or additional files.*
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js and npm
-- A Supabase project
-- Supabase project URL and anon key
-- The required Supabase Edge Functions deployed and configured
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<your-username>/<your-repository>.git
-cd <your-repository>
-```
-
-### 2. Install frontend dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure environment variables
-
-Create a `.env` file in the frontend project root and add your Supabase project values:
-
-```env
-VITE_SUPABASE_URL=https://<your-project-ref>.supabase.co
-VITE_SUPABASE_ANON_KEY=<your-supabase-anon-key>
-```
-
-If your local setup also uses a separate FastAPI scanning service, configure `VITE_SCAN_API_URL` according to that backend's address. Do not add credentials, service-role keys, or other secrets to GitHub.
-
-### 4. Run the development server
-
-```bash
-npm run dev
-```
-
-Open the local URL printed by Vite in your terminal.
-
-## Supabase Setup
-
-The application uses Supabase for backend functionality and scan-result storage. Configure the database table and deploy the Edge Functions required by your version of the project.
-
-The scan history table stores assessment information such as the target domain, status, risk score, risk category, result payload, scan duration and creation time.
-
-Deploy/configure the functions using the Supabase CLI and your project's setup:
-
-```bash
-supabase login
-supabase link --project-ref <your-project-ref>
-supabase functions deploy scan-domain
-supabase functions deploy threat-intel
-```
-
-Make sure any required function secrets and database policies are configured before using the application. Never publish secret values in this README or commit your `.env` file.
-
-## Responsible Use
-
-SecureScope is intended for **authorized, non-invasive security assessment**. Only assess domains that you own or have explicit written permission to test. Do not use the platform to scan systems without authorization. Results are informational and should be reviewed by a qualified security professional before making security decisions.
 
 ## Limitations
 
