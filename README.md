@@ -1,4 +1,4 @@
-# SecureScope — Web Security Assessment and Vulnerability Risk Analysis
+# SecureScope — Web Security Assessment and Vulnerability Risk Analyser
 
 SecureScope is a web-based platform for **non-invasive web security assessment and vulnerability risk analysis**. It helps users assess an authorized public domain, review security-related configuration details, identify potential findings, and understand the overall risk through a consolidated score and report.
 
