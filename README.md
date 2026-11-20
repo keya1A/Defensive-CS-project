@@ -7,16 +7,21 @@ SecureScope is a web-based platform for **non-invasive web security assessment a
 ## Screenshots
 
 ### Landing page
-![SecureScope landing page](assets/homepage.png)
+![SecureScope landing page](<img width="954" height="440" alt="Screenshot 2026-11-20 224737" src="https://github.com/user-attachments/assets/0f6fe64b-da69-4317-800d-6e7c4c905f94" />
+)
 
 ### Scan overview — low-risk example
-![Scan overview showing a risk score of 18 out of 100](assets/scan-overview-low-risk.png)
+![Scan overview showing a risk score of 18 out of 100](<img width="949" height="443" alt="Screenshot 2026-11-20 225028" src="https://github.com/user-attachments/assets/b3a10fcd-db71-4c4e-9908-e93c4fa7f096" />
+
+)
 
 ### Security headers and cookie analysis
-![Security headers and cookie security results](assets/security-headers-cookies.png)
+![Security headers and cookie security results](<img width="794" height="439" alt="Screenshot 2026-11-20 225130" src="https://github.com/user-attachments/assets/856cf49a-0e4a-42f5-98bc-254e348b1238" />
+)
 
 ### Scan overview — high-risk example
-![Scan overview showing a risk score of 65 out of 100](assets/scan-overview-high-risk.png)
+![Scan overview showing a risk score of 65 out of 100](<img width="955" height="347" alt="Screenshot 2026-11-20 225344" src="https://github.com/user-attachments/assets/9a93a1af-18a6-48d1-ba5e-894944f19a4a" />
+)
 
 *The screenshots show example scan results from different assessments. Scores and findings depend on the target domain and the results returned during each scan.*
 
@@ -197,6 +202,4 @@ SecureScope is intended for **authorized, non-invasive security assessment**. On
 
 **Developed by Keya Saha**
 
-## License
 
-Choose and add a license before allowing others to reuse or distribute this project. If no license file is included, all rights remain with the copyright holder.
